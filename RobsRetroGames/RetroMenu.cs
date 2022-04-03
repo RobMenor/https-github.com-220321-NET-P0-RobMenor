@@ -5,6 +5,9 @@ public class RetroMenu
 {
     public void MainMenu()
     {
+
+        List<Inventory> items = new List<Inventory>();
+
         Console.WriteLine("Welcome to Rob's Retro Games.");
 
         Main:
@@ -34,11 +37,15 @@ public class RetroMenu
                 Console.WriteLine("Please enter valid name.");
                 goto Name;
             }
-            else if (respChar != 'Y')
+            else if (respChar != 'Y' )
             {
-                Console.WriteLine("Invalid response");
+                Console.WriteLine("Hello " + name);
             }
         }
+
+        Console.WriteLine("Sign in with name");
+        Console.ReadLine();
+
         bool exit = false;
         do
         {
@@ -66,7 +73,12 @@ public class RetroMenu
             }
 
             Inventory newInventory = new Inventory(brand, title);
-            Console.WriteLine(newInventory.ToString());
+            items.Add(newInventory);
+            
+            foreach(Inventory itemsToDisplay in items)
+            {
+                Console.WriteLine(itemsToDisplay);
+            }
 
             Another:
             Console.WriteLine("Would you like to look for something else? [Y/N]");
