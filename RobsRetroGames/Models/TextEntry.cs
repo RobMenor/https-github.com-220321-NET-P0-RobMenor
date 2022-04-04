@@ -1,14 +1,28 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Models;
 
-public abstract class TextEntry
+public class TextEntry
 {
-    public DateTime DateCreated { get; set; }
+    public DateTime DateCreated { get; set; } = DateTime.Now;
 
-    public string? Console { get; set; }
+    private string title = "";
+    public string? Title
+    {
+        get => title;
+        set
+        {
+            if(String.IsNullOrWhiteSpace(value))
+            {
+                throw new ValidationException("Title cannot be empty");
+            }
+            title = value;
+        }
+    }
 
-    public string? Title { get; set; }
+    public string? GameSystem { get; set; } = "";
 
-    public int Price { get; set; }
+    public int Price { get; set; } = 20;
 
     public void UpSell()
     {
