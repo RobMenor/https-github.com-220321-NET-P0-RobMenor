@@ -31,6 +31,16 @@ public class Inventory
 
     public int Price { get; set; }
 
+    public void UpSell()
+    {
+        Price++;
+    }
+
+    public void DownSell()
+    {
+        Price--;
+    }
+
     public override string ToString()
     {
         return $"Ok. Let me see if I have {this.Title} for {this.Brand} it'll be {this.Price} dollars";
