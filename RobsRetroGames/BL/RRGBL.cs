@@ -4,14 +4,14 @@ using DL;
 namespace BL;
 public class RRGBL
 {
-    public void CreateRequest(Inventory GameRequest)
+    public void CreateRequest(Inventory requestToCreate)
     {
-        StaticStorage.Items.Add(GameRequest);
+        new FileRepository().CreateRequest(requestToCreate);
     }
 
     public List<Inventory> GetInventory()
     {
-        return StaticStorage.Items;
+        return new FileRepository().GetInventories();
     }
 
     public void SoldOut(Inventory markAsSold)
