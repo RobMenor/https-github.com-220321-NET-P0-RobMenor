@@ -23,6 +23,6 @@ public class Inventory : TextEntry
 
     public override string ToString()
     {
-        return $"Game System: {GameSystem} \nTitle: {Title} \nPrice: {Price} \nDate Created: {DateCreated}";
+        return $"Game System: {GameSystem} \nTitle: {Title} \nPrice: {Price} \nQuantity: {Quantity} \nDate Created: {DateCreated}";
     }
 }

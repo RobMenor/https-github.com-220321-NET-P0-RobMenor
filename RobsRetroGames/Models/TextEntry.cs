@@ -33,4 +33,16 @@ public class TextEntry
     {
         Price = Price - 1;
     }
+
+    public int Quantity { get; set; }
+
+    public void AddQuantity()
+    {
+        Quantity = Quantity++;
+    }
+
+    public void RemoveQuantity()
+    {
+        Quantity = Quantity--;
+    }
 }

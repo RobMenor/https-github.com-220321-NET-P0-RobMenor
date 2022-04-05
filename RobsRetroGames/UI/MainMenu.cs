@@ -50,7 +50,7 @@ public class MainMenu
             Console.WriteLine("Welcome to Rob's Retro Games");
             Console.WriteLine("What can I do for you today?");
             Console.WriteLine("[1] Request a game");
-            Console.WriteLine("[2] View inventory");
+            Console.WriteLine("[2] View cart");
             Console.WriteLine("[3] Select an item");
             Console.WriteLine("[4] Upsell or Downsell a game");
             Console.WriteLine("[5] Mark as sold out");
@@ -123,13 +123,51 @@ public class MainMenu
 
     private void DisplayAllItems()
     {
-        Console.WriteLine("Inventory List");
+        Console.WriteLine("Your Cart");
         List<Inventory> allItems = new RRGBL().GetInventory();
 
+        AddGame:
         foreach(Inventory itemToDisplay in allItems)
         {
+            Console.WriteLine("[A]dd game to cart or [R]emove game from cart. [P]ass on game or [E]xit");
+
+            string resp = Console.ReadLine().Trim().ToUpper();
+
+            char respChar;
+            try
+            {
+                respChar = resp.Trim().ToUpper()[0];
+            }
+            catch(IndexOutOfRangeException ex)
+            {
+                Console.WriteLine("Invalid response");
+                goto AddGame;
+            }
+
+            if(resp == "A")
+            {
+                itemToDisplay.AddQuantity();
+            }
+            else if(resp == "R")
+            {
+                itemToDisplay.RemoveQuantity();
+            }
+            else if(resp == "P")
+            {
+                continue;
+            }
+            else if(resp == "E")
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid response");
+                goto AddGame;
+            }
             Console.WriteLine(itemToDisplay);
         }
+        return;
     }
 
     private Inventory? SelectItem()
