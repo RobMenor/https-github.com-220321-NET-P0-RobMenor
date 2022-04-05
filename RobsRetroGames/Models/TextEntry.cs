@@ -22,15 +22,15 @@ public class TextEntry
 
     public string? GameSystem { get; set; } = "";
 
-    public int Price { get; set; } = 20;
+    public int Price { get; set; }
 
     public void UpSell()
     {
-        Price++;
+        Price = Price + 2;
     }
 
     public void DownSell()
     {
-        Price--;
+        Price = Price - 1;
     }
 }

@@ -17,4 +17,12 @@ public class Inventory : TextEntry
             gameSystem = value;
         }
     }
+
+    public bool IsSold { get; set; }
+    public List<Demand> Demands { get; set; }
+
+    public override string ToString()
+    {
+        return $"Game System: {GameSystem} \nTitle: {Title} \nPrice: {Price} \nDate Created: {DateCreated}";
+    }
 }

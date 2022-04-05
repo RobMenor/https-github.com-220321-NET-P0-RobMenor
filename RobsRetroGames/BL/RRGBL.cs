@@ -13,4 +13,9 @@ public class RRGBL
     {
         return StaticStorage.Items;
     }
+
+    public void SoldOut(Inventory markAsSold)
+    {
+        StaticStorage.Items.Remove(markAsSold);
+    }
 }
